@@ -7,18 +7,15 @@ public class ProgrammingCalculator
 	
 	public String KamOsmichna(String chislo, int sistema)
 	{
-		int ds=Integer.parseInt(chislo, sistema);
 		return Integer.toString(Integer.parseInt(chislo, sistema), 8);
 	}
 	
 	public String KamDesetichna(String chislo, int sistema)
 	{
-		int ds=Integer.parseInt(chislo, sistema);
 		return Integer.toString(Integer.parseInt(chislo, sistema), 10);	}
 	
 	public String KamShestnadesetichna(String chislo, int sistema)
 	{
-		int ds=Integer.parseInt(chislo, sistema);
 		return Integer.toString(Integer.parseInt(chislo, sistema), 16);	}
 	
 
