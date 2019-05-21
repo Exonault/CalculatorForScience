@@ -1,4 +1,4 @@
-package src.Calculator;
+package src.Formulas;
 
 public class ChemistryFormula {
     public final double Vm=22.41;//for gases

@@ -1,4 +1,4 @@
-package Calculator;
+package src.Formulas;
 
 public class MathFormulas {
 
