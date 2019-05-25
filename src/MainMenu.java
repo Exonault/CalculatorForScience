@@ -1,11 +1,11 @@
 package src;
 
+import javax.swing.*;
+
 public class MainMenu
 {
     public static void main(String[] args)
     {
-<<<<<<< HEAD
-=======
         JFrame frame = new JFrame();
 		
 		
@@ -32,6 +32,7 @@ public class MainMenu
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
->>>>>>> ebec912903c177656422be2c37c1043879be2ff8
+
+  //  System.out.print(CustomFormulas.TheAnsIsIntWhenTheParametarIs("A=(x-7)*(x-10)*(x-7)*(x-10)-40",7,0.5));
     }
 }
