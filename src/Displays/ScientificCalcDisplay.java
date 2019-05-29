@@ -1,10 +1,11 @@
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
 public class ScientificCalcDisplay 
@@ -15,11 +16,14 @@ public class ScientificCalcDisplay
 	bmul,bsub,badd,bdec,beq,bdel,bclr,sin,cos,ln
 	,log,TenX,XY,tg,cotg,sinh,cosh,tgh,cotgh,asin
 	,acos,atg,actg,pm,kor,xx;
-
+	JMenuBar bar;
+	JMenuItem PrCalc,StCalc,ScCalc;
+	JMenu CalcMenu;
 	
 	
 	ScientificCalcDisplay()
 	{
+
 		f = new JFrame("Scientific Calculator");
 		t = new JTextField("");
 		b1 = new JButton("1");
@@ -149,7 +153,38 @@ public class ScientificCalcDisplay
 		f.add(kor);
 		
 		
+		bar = new JMenuBar();
+		f.setJMenuBar(bar);
+		CalcMenu = new JMenu("Calculators");
+		bar.add(CalcMenu);	
 		
+		PrCalc = new JMenuItem("Programming Calculator");
+		CalcMenu.add(PrCalc);
+		ScCalc = new JMenuItem("Scientific Calculator");
+		CalcMenu.add(ScCalc);
+		StCalc = new JMenuItem("Standart Calculator");
+		CalcMenu.add(StCalc);
+		
+		StCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new StandCalcDisplay();
+			}
+			});
+		
+		PrCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new ProgrammingCalcDisplay();
+			}
+			});
+		
+		ScCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new ScientificCalcDisplay();
+			}
+			});
 		
 		f.setLayout(null);
 		f.setVisible(true);
