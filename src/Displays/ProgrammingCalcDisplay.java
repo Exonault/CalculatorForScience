@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +16,9 @@ public class ProgrammingCalcDisplay
 	JFrame f;
 	JTextField t;
 	JButton bo,bd,bh,ob,od,oh,db,doo,dh,hb,ho,hd;
+	JMenuBar bar;
+	JMenuItem PrCalc,StCalc,ScCalc;
+	JMenu CalcMenu;
 	
 	ProgrammingCalcDisplay()
 	{
@@ -59,6 +64,39 @@ public class ProgrammingCalcDisplay
 		f.add(hb);
 		f.add(ho);
 		f.add(hd);
+		
+		bar = new JMenuBar();
+		f.setJMenuBar(bar);
+		CalcMenu = new JMenu("Calculators");
+		bar.add(CalcMenu);	
+		
+		PrCalc = new JMenuItem("Programming Calculator");
+		CalcMenu.add(PrCalc);
+		ScCalc = new JMenuItem("Scientific Calculator");
+		CalcMenu.add(ScCalc);
+		StCalc = new JMenuItem("Standart Calculator");
+		CalcMenu.add(StCalc);
+		
+		StCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new StandCalcDisplay();
+			}
+			});
+		
+		PrCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new ProgrammingCalcDisplay();
+			}
+			});
+		
+		ScCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new ScientificCalcDisplay();
+			}
+			});
 		
 		f.setLayout(null);
 		f.setVisible(true);
