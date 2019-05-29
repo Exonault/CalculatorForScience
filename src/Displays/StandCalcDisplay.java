@@ -3,6 +3,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
 public class StandCalcDisplay implements ActionListener
@@ -10,7 +13,9 @@ public class StandCalcDisplay implements ActionListener
 	JFrame f;
 	JTextField t;
 	JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdiv,bmul,bsub,badd,bdec,beq,bdel,bclr;
-	
+	JMenuBar bar;
+	JMenuItem PrCalc,StCalc,ScCalc;
+	JMenu CalcMenu;
 	static double a=0,b=0,result=0;
 	static int operator=0;
 	
@@ -80,6 +85,39 @@ public class StandCalcDisplay implements ActionListener
 		f.add(badd);
 		f.add(bdel);
 		f.add(bclr);
+		
+		bar = new JMenuBar();
+		f.setJMenuBar(bar);
+		CalcMenu = new JMenu("Calculators");
+		bar.add(CalcMenu);	
+		
+		PrCalc = new JMenuItem("Programming Calculator");
+		CalcMenu.add(PrCalc);
+		ScCalc = new JMenuItem("Scientific Calculator");
+		CalcMenu.add(ScCalc);
+		StCalc = new JMenuItem("Standart Calculator");
+		CalcMenu.add(StCalc);
+		
+		StCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new StandCalcDisplay();
+			}
+			});
+		
+		PrCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new ProgrammingCalcDisplay();
+			}
+			});
+		
+		ScCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				new ScientificCalcDisplay();
+			}
+			});
 		
 		f.setLayout(null);
 		f.setVisible(true);
