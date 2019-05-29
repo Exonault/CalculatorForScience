@@ -1,73 +1,78 @@
-package src.Displays;
-
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
- class ProgrammingCalc
+public class ProgrammingCalcDisplay 
 {
-	/*public ProgrammingCalc()
+	JFrame f;
+	JTextField t;
+	JButton bo,bd,bh,ob,od,oh,db,doo,dh,hb,ho,hd;
+	
+	ProgrammingCalcDisplay()
 	{
-		JTextField display = new JTextField();
-		display.setHorizontalAlignment(JTextField.RIGHT);
+		f=new JFrame("Programming Calculator");
+		t = new JTextField("");
+		bo = new JButton("Binary to Octal");
+		bd = new JButton("Binary to Decimal");
+		bh = new JButton("Binary to Hexadecimal");
+		ob = new JButton("Octal to Binary");
+		od = new JButton("Octal to Decimal");
+		oh = new JButton("Octal to Hexadecimal");
+		db = new JButton("Decimal to Binary");
+		doo = new JButton("Decimal to Octal");
+		dh = new JButton("Decimal to Hexadecimal");
+		hb = new JButton("Hexadecimal to Binary");
+		ho = new JButton("Hexadecimal to Octal");
+		hd = new JButton("Hexadecimal to Decimal");
 		
-		JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout( new GridLayout(0, 3) );
+		t.setBounds(80,40,490,30);
+		bo.setBounds(40, 100, 180, 40);
+		bd.setBounds(240, 100, 180, 40);
+		bh.setBounds(440, 100, 180, 40);
+		ob.setBounds(40, 170, 180, 40);
+		od.setBounds(240, 170, 180, 40);
+		oh.setBounds(440, 170, 180, 40);
+		db.setBounds(40, 240, 180, 40);
+		doo.setBounds(240, 240, 180, 40);
+		dh.setBounds(440, 240, 180, 40);
+		hb.setBounds(40, 310, 180, 40);
+		ho.setBounds(240, 310, 180, 40);
+		hd.setBounds(440, 310, 180, 40);
 		
-		JButton[] buttons = new JButton[12];
+		f.add(t);
+		f.add(bo);
+		f.add(bd);
+		f.add(bh);
+		f.add(ob);
+		f.add(od);
+		f.add(oh);
+		f.add(db);
+		f.add(doo);
+		f.add(dh);
+		f.add(hb);
+		f.add(ho);
+		f.add(hd);
 		
-		JButton BiOc = new JButton("Binary to Octal");
-		buttons[0]=BiOc;
+		f.setLayout(null);
+		f.setVisible(true);
+		f.setSize(650, 450);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setResizable(false);
+		f.setLocationRelativeTo(null);
+
 		
-		JButton BiDe = new JButton("Binary to Decimal");
-		buttons[1]=BiDe;
-		
-		JButton BiHex = new JButton("Binary to Hexadecimal");
-		buttons[2]=BiHex;
-		
-		JButton OcBi = new JButton("Octal to Binary");
-		buttons[3]=OcBi;
-		
-		JButton OcDe = new JButton("Octal to Decimal");
-		buttons[4]=OcDe;
-		
-		JButton OcHex = new JButton("Octal to Hexadecimal");
-		buttons[5]=OcHex;
-		
-		JButton DeBi = new JButton("Decimal to Binary");
-		buttons[6]=DeBi;
-		
-		JButton DeOc = new JButton("Decimal to Octal");
-		buttons[7]=DeOc;
-		
-		JButton DeHex = new JButton("Decimal to Hexadecimal");
-		buttons[8]=DeHex;
-		
-		JButton HexBi = new JButton("Hexadecimal to Binary");
-		buttons[9]=HexBi;
-		
-		JButton HexOc = new JButton("Hexadecimal to Octal");
-		buttons[10]=HexOc;
-		
-		JButton HexDe = new JButton("Hexadecimal to Decimal");
-		buttons[11]=HexDe;
-		
-		for(int i=0;i<12;i++)
-		{
-			buttonPanel.add( buttons[i] );
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		frame.getContentPane().add(display, BorderLayout.NORTH);
-		frame.getContentPane().add(buttonPanel);
-	}*/
+	}
+	
+	public static void main(String[] args)
+	{
+		new ProgrammingCalcDisplay();
+	}
+
 }
