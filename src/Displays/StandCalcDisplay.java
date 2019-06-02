@@ -8,9 +8,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
-public class StandCalcDisplay implements ActionListener
+public class StandCalcDisplay  extends JFrame implements ActionListener
 {
-	JFrame f;
 	JTextField t;
 	JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdiv,bmul,bsub,badd,bdec,beq,bdel,bclr;
 	JMenuBar bar;
@@ -21,7 +20,6 @@ public class StandCalcDisplay implements ActionListener
 	
 	StandCalcDisplay()
 	{
-		f = new JFrame("Standart Calculator");
 		t = new JTextField("");
 		b1 = new JButton("1");
 		b2 = new JButton("2");
@@ -66,28 +64,28 @@ public class StandCalcDisplay implements ActionListener
 		bdel.setBounds(55,380,100,40);
 		bclr.setBounds(175,380,100,40);
 		
-		f.add(t);
-		f.add(b7);
-		f.add(b8);
-		f.add(b9);
-		f.add(bdiv);
-		f.add(b4);
-		f.add(b5);
-		f.add(b6);
-		f.add(bmul);
-		f.add(b1);
-		f.add(b2);
-		f.add(b3);
-		f.add(bsub);
-		f.add(bdec);
-		f.add(b0);
-		f.add(beq);
-		f.add(badd);
-		f.add(bdel);
-		f.add(bclr);
+		add(t);
+		add(b7);
+		add(b8);
+		add(b9);
+		add(bdiv);
+		add(b4);
+		add(b5);
+		add(b6);
+		add(bmul);
+		add(b1);
+		add(b2);
+		add(b3);
+		add(bsub);
+		add(bdec);
+		add(b0);
+		add(beq);
+		add(badd);
+		add(bdel);
+		add(bclr);
 		
 		bar = new JMenuBar();
-		f.setJMenuBar(bar);
+		setJMenuBar(bar);
 		CalcMenu = new JMenu("Calculators");
 		bar.add(CalcMenu);	
 		
@@ -101,30 +99,36 @@ public class StandCalcDisplay implements ActionListener
 		StCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				new StandCalcDisplay();
+				dispose();
+
+				add(new StandCalcDisplay());
 			}
 			});
 		
 		PrCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				new ProgrammingCalcDisplay();
+				dispose();
+
+				add(new ProgrammingCalcDisplay());
 			}
 			});
 		
 		ScCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				new ScientificCalcDisplay();
+				dispose();
+
+				add(new ScientificCalcDisplay());
 			}
 			});
 		
-		f.setLayout(null);
-		f.setVisible(true);
-		f.setSize(350, 500);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setResizable(false);
-		f.setLocationRelativeTo(null);
+		setLayout(null);
+		setVisible(true);
+		setSize(350, 500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		setLocationRelativeTo(null);
 
 		b1.addActionListener(this);
 		b2.addActionListener(this);
@@ -214,20 +218,20 @@ public class StandCalcDisplay implements ActionListener
 		
 			switch(operator)
 			{
-//				case 1: StandardCalculator.sum(a,b);
-			case 1: result=a+b;
+				case 1: result = src.Calculators.StandardCalculator.sum(a,b);
+
 					break;
 		
-//				case 2: StandardCalculator.diff(a,b);
-				case 2: result=a-b;
+				case 2: result = src.Calculators.StandardCalculator.diff(a,b);
+
 					break;
 		
-//				case 3: StandardCalculator.multi(a,b);
-				case 3: result=a*b;
+				case 3: result = src.Calculators.StandardCalculator.multi(a,b);
+
 					break;
 		
-//				case 4: StandardCalculator.dev(a,b);
-				case 4: result=a/b;
+				case 4: result = src.Calculators.StandardCalculator.dev(a,b);
+
 					break;
 		
 				default: result=0;
@@ -245,11 +249,7 @@ public class StandCalcDisplay implements ActionListener
 			t.setText("");
 			for(int i=0;i<s.length()-1;i++)
 			t.setText(t.getText()+s.charAt(i));
-		}		
+		}
 	}
 	
-	public static void main(String[] args)
-	{
-		new StandCalcDisplay();
-	}
 }

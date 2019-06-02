@@ -2,26 +2,24 @@ package src.Calculators;
 
 public class ProgrammingCalculator
 {
-	public String KamDvoichna(String chislo, int sistema)
+	public static String toBinary(int chislo, int sistema)
 	{
-		return Integer.toString(Integer.parseInt(chislo, sistema), 2);
+		String a = Integer.toString(chislo, 2);
+		return a;
 	}
-	
-	public String KamOsmichna(String chislo, int sistema)
+	public static String toOctal(int chislo, int sistema)
 	{
-		return Integer.toString(Integer.parseInt(chislo, sistema), 8);
+		String a = Integer.toString(chislo, 8);
+		return a;
 	}
-	
-	public String KamDesetichna(String chislo, int sistema)
+	public static String toDecimal(int chislo, int sistema)
 	{
-		return Integer.toString(Integer.parseInt(chislo, sistema), 10);	}
-	
-	public String KamShestnadesetichna(String chislo, int sistema)
+		String a = Integer.toString(chislo, 10);
+		return a;
+	}
+	public static String toHexadecimal(int chislo, int sistema)
 	{
-		return Integer.toString(Integer.parseInt(chislo, sistema), 16);	}
-	
-
-	//Integer.parseInt(chislo, sistema) - izvejdane na chislo OT opredelena sistema kam desetichna
-	
-	//Integer.toString(chislo, sistema) - izvejdane na chislo v opredelena sistema
+		String a = Integer.toString(chislo, 16);
+		return a;
+	}
 }

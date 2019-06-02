@@ -1,7 +1,9 @@
-package src;
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
 public class MainMenu
 {
     public static void main(String[] args)
@@ -12,7 +14,6 @@ public class MainMenu
 		frame.setBounds(0, 0, 600,480);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		JMenu CalcMenu = new JMenu("Calculators");
@@ -26,7 +27,33 @@ public class MainMenu
 		CalcMenu.add(StCalc);
         //slojete kodovete ot drygite LayoutiNaCalcolatorite otdolo:
         
-        
+		StCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+
+				frame.add(new StandCalcDisplay());
+				
+			}
+			});
+		
+		PrCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+
+				frame.add(new ProgrammingCalcDisplay());
+			}
+			});
+		
+		ScCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+
+				frame.add(new ScientificCalcDisplay());
+			}
+			});
         
 		
 

@@ -11,18 +11,18 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class ProgrammingCalcDisplay 
+public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 {
-	JFrame f;
+	//JFrame f;
 	JTextField t;
 	JButton bo,bd,bh,ob,od,oh,db,doo,dh,hb,ho,hd;
 	JMenuBar bar;
 	JMenuItem PrCalc,StCalc,ScCalc;
 	JMenu CalcMenu;
-	
+	static int a=0;
 	ProgrammingCalcDisplay()
 	{
-		f=new JFrame("Programming Calculator");
+		//f=new JFrame("Programming Calculator");
 		t = new JTextField("");
 		bo = new JButton("Binary to Octal");
 		bd = new JButton("Binary to Decimal");
@@ -51,22 +51,22 @@ public class ProgrammingCalcDisplay
 		ho.setBounds(240, 310, 180, 40);
 		hd.setBounds(440, 310, 180, 40);
 		
-		f.add(t);
-		f.add(bo);
-		f.add(bd);
-		f.add(bh);
-		f.add(ob);
-		f.add(od);
-		f.add(oh);
-		f.add(db);
-		f.add(doo);
-		f.add(dh);
-		f.add(hb);
-		f.add(ho);
-		f.add(hd);
+		add(t);
+		add(bo);
+		add(bd);
+		add(bh);
+		add(ob);
+		add(od);
+		add(oh);
+		add(db);
+		add(doo);
+		add(dh);
+		add(hb);
+		add(ho);
+		add(hd);
 		
 		bar = new JMenuBar();
-		f.setJMenuBar(bar);
+		setJMenuBar(bar);
 		CalcMenu = new JMenu("Calculators");
 		bar.add(CalcMenu);	
 		
@@ -80,37 +80,139 @@ public class ProgrammingCalcDisplay
 		StCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				new StandCalcDisplay();
+				dispose();
+				add(new StandCalcDisplay());
 			}
 			});
 		
 		PrCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				new ProgrammingCalcDisplay();
+				dispose();
+
+				add(new ProgrammingCalcDisplay());
 			}
 			});
 		
 		ScCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				new ScientificCalcDisplay();
+				dispose();
+
+				add(new ScientificCalcDisplay());
 			}
 			});
 		
-		f.setLayout(null);
-		f.setVisible(true);
-		f.setSize(650, 450);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setResizable(false);
-		f.setLocationRelativeTo(null);
+		setLayout(null);
+		setVisible(true);
+		setSize(650, 450);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		setLocationRelativeTo(null);
 
 		
+		bo.addActionListener(this);
+		bd.addActionListener(this);
+		bh.addActionListener(this);
+		
+		
+		ob.addActionListener(this);
+		od.addActionListener(this);
+		oh.addActionListener(this);
+		
+		
+		db.addActionListener(this);
+		doo.addActionListener(this);
+		dh.addActionListener(this);
+		
+		
+		hb.addActionListener(this);
+		ho.addActionListener(this);
+		hd.addActionListener(this);
 	}
 	
-	public static void main(String[] args)
+	public void actionPerformed(ActionEvent e)
 	{
-		new ProgrammingCalcDisplay();
+		if(e.getSource()==bo)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toOctal(a, 2));
+		} 
+		
+		if(e.getSource()==bd)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toDecimal(a, 2));
+		} 
+		
+		if(e.getSource()==bh)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toHexadecimal(a, 2));
+		} 
+		
+		
+		
+		
+		if(e.getSource()==ob)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toBinary(a, 8));
+		} 
+		
+		if(e.getSource()==od)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toDecimal(a, 8));
+		} 
+		
+		if(e.getSource()==oh)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toHexadecimal(a, 8));
+		} 
+		
+		
+		
+		
+		if(e.getSource()==db)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toBinary(a, 10));
+		} 
+		
+		if(e.getSource()==doo)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toOctal(a, 10));
+		} 
+		
+		if(e.getSource()==dh)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toHexadecimal(a, 10));
+		} 
+		
+		
+		
+		
+		if(e.getSource()==hb)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toBinary(a, 16));
+		} 
+		
+		if(e.getSource()==ho)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toOctal(a, 16));
+		} 
+		
+		if(e.getSource()==hd)
+		{
+			a=Integer.parseInt(t.getText());
+			t.setText(src.Calculators.ProgrammingCalculator.toDecimal(a, 16));
+		} 
 	}
 
 }
