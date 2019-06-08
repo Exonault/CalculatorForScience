@@ -1,4 +1,4 @@
-package src.Formulas;
+package Formulas;
 public class CustomFormulas {
 
     public static String TheAnsIsIntWhenTheParametarIs(String izraz, double startNum, double diff)

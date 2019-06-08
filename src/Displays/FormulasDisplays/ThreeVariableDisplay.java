@@ -1,20 +1,39 @@
-
+package FormulasDisplays;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 
-import CalculatorDisplays.ProgrammingCalcDisplay;
-import CalculatorDisplays.ScientificCalcDisplay;
-import CalculatorDisplays.StandCalcDisplay;
-public class MainMenu
+public class ThreeVariableDisplay 
 {
-    public static void main(String[] args)
-    {
-        JFrame frame = new JFrame();
-        frame.setTitle("Main menu");
-		
+	public static JFrame frame = new JFrame();
+	
+	public static JTextField VarA,VarB,VarC,result;
+	
+	public static JButton equal;
+	
+	
+	public static JMenuBar bar;
+	
+	public static JMenu CalcMenu,ChF,MaF,PhF;
+	
+	public static JMenuItem PrCalc,StCalc,ScCalc; //Calculators
+	
+	public static JMenuItem sumofNEl1,sumofNEl2,sumofNElGeo,cosTh,med,trAe2,trAe3,trpAe,prlgAe2; //Math Formulas
+	
+	
+	
+	public static void run()
+	{
+		frame.setTitle("Math Formulas - Factoriel");
 		frame.setBounds(0, 0, 600,480);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
@@ -31,26 +50,27 @@ public class MainMenu
 		CalcMenu.add(StCalc);
 		
 		
+		
 		JMenu ChF = new JMenu("Chemistry Formulas");
 		menuBar.add(ChF);	
 		
 		JMenuItem Cm = new JMenuItem("Cm=n/v [mol/l]n");
 		ChF.add(Cm);
+		
 		JMenuItem nCm = new JMenuItem("n=Cm*v [mol]");
 		ChF.add(nCm);
+		
 		JMenuItem vCm = new JMenuItem("v=n/Cm [l]");
 		ChF.add(vCm);
         
-		
-		
 		JMenuItem Dns = new JMenuItem("p=m/v [kg/l]");
 		ChF.add(Dns);
+		
 		JMenuItem mDns = new JMenuItem("m=p*v [kg]");
 		ChF.add(mDns);
+		
 		JMenuItem vDns = new JMenuItem("v=p [l]");
 		ChF.add(vDns);
-		
-		
 		
 		JMenuItem Vm = new JMenuItem("Vm=v/n [l/mol]");
 		ChF.add(Vm);
@@ -69,7 +89,6 @@ public class MainMenu
 		
 		JMenu MaF = new JMenu("Math Formulas");
 		menuBar.add(MaF);
-		
 		
 		JMenuItem fact = new JMenuItem("Factoriel");
 		MaF.add(fact);
@@ -127,10 +146,6 @@ public class MainMenu
 		
 		
 		
-		
-		
-		
-		
 		JMenu PhF = new JMenu("Physics Formulas");
 		menuBar.add(PhF);
 		
@@ -163,9 +178,6 @@ public class MainMenu
 		
 		JMenuItem vEn = new JMenuItem("v=E/h");
 		PhF.add(vEn);
-		
-		
-		
 		
 		fact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
@@ -492,11 +504,6 @@ public class MainMenu
 			});
 		
 		
-		
-		
-		
-		
-		
 		StCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
@@ -528,10 +535,161 @@ public class MainMenu
 			});
 		
 		
-
+		VarA = new JTextField("");
+		VarB = new JTextField("");
+		VarC = new JTextField("");
+		result = new JTextField("");
+		equal = new JButton("=");
+		
+		
+		VarA.setBounds(40, 40, 500, 50);
+		VarB.setBounds(40, 100, 500, 50);
+		VarC.setBounds(40, 160, 500, 50);
+		equal.setBounds(200, 230, 150, 80);
+		result.setBounds(40, 310, 500, 50);
+		
+		
+		frame.add(VarA);
+		frame.add(VarB);
+		frame.add(VarC);
+		frame.add(equal);
+		frame.add(result);
+		
+		
+		frame.setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-
-  //  System.out.print(CustomFormulas.TheAnsIsIntWhenTheParametarIs("A=(x-7)*(x-10)*(x-7)*(x-10)-40",7,0.5));
-    }
+	}
+	
+	
+	
+	
+	//sumofNEl1,sumofNEl2,sumofNElGeo,cosTh,med,trAe2,trAe3,trAe4,trpAe,prlgAe2;
+	
+	public static void sumE1()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				double a = Double.parseDouble(VarA.getText());
+				double b = Double.parseDouble(VarB.getText());
+				int c = Integer.parseInt(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.sumOfFirstNElementsArithmethicSeries(a, b, c));
+			}
+			});
+	}
+	
+	public static void sumE2()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				double a = Double.parseDouble(VarA.getText());
+				double b = Double.parseDouble(VarB.getText());
+				int c = Integer.parseInt(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.sumOfFirstNElementsArithmethicSeriesOption2(a, b, c));
+			}
+			});
+	}
+	
+	public static void sumG()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				double a = Double.parseDouble(VarA.getText());
+				double b = Double.parseDouble(VarB.getText());
+				int c = Integer.parseInt(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.sumOfFirstNElementsGeometricSeries(a, b, c));
+			}
+			});
+	}
+	
+	public static void cosTh()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				double a = Double.parseDouble(VarA.getText());
+				double b = Double.parseDouble(VarB.getText());
+				double c = Double.parseDouble(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.cosineTheorem(a, b, c));
+			}
+			});
+	}
+	
+	public static void med()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				double a = Double.parseDouble(VarA.getText());
+				double b = Double.parseDouble(VarB.getText());
+				double c = Double.parseDouble(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.formulaForMedian(a, b, c));
+			}
+			});
+	}
+	
+	public static void trAe2()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				double a = Double.parseDouble(VarA.getText());
+				double b = Double.parseDouble(VarB.getText());
+				int c = Integer.parseInt(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.triangleArea(a, b, c));
+			}
+			});
+	}
+	
+	public static void trAe3()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				double a = Double.parseDouble(VarA.getText());
+				double b = Double.parseDouble(VarB.getText());
+				double c = Double.parseDouble(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.triangleArea(a, b, c));
+			}
+			});
+	}
+	
+	public static void trPAe()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				int a = Integer.parseInt(VarA.getText());
+				int b = Integer.parseInt(VarB.getText());
+				int c = Integer.parseInt(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.trapezoidArea(a, b, c));
+			}
+			});
+	}
+	
+	public static void prlgAe2()
+	{
+		run();
+		equal.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				result.setText("");
+				int a = Integer.parseInt(VarA.getText());
+				int b = Integer.parseInt(VarB.getText());
+				int c = Integer.parseInt(VarC.getText());
+				result.setText(""+Formulas.MathFormulas.paralelogramArea(a, b, c));
+			}
+			});
+	}
+	
 }

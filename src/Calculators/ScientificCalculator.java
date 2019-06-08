@@ -1,4 +1,4 @@
-package src.Calculators;
+package Calculators;
 
 public class ScientificCalculator {
     public static double Sin(double number) {

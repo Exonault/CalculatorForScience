@@ -1,38 +1,107 @@
+package CalculatorDisplays;
 
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 
-import CalculatorDisplays.ProgrammingCalcDisplay;
-import CalculatorDisplays.ScientificCalcDisplay;
-import CalculatorDisplays.StandCalcDisplay;
-public class MainMenu
+
+public class StandCalcDisplay  extends JFrame implements ActionListener
 {
-    public static void main(String[] args)
-    {
-        JFrame frame = new JFrame();
-        frame.setTitle("Main menu");
+	JTextField t;
+	JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdiv,bmul,bsub,badd,bdec,beq,bdel,bclr;
+	JMenuBar bar;
+	JMenuItem PrCalc,StCalc,ScCalc;
+	JMenu CalcMenu;
+	static double a=0,b=0,result=0;
+	static int operator=0;
+	
+	public StandCalcDisplay()
+	{
+		t = new JTextField("");
+		b1 = new JButton("1");
+		b2 = new JButton("2");
+		b3 = new JButton("3");
+		b4 = new JButton("4");
+		b5 = new JButton("5");
+		b6 = new JButton("6");
+		b7 = new JButton("7");
+		b8 = new JButton("8");
+		b9 = new JButton("9");
+		b0 = new JButton("0");
+		bdiv = new JButton("/");
+		bmul = new JButton("*");
+		bsub = new JButton("-");
+		badd = new JButton("+");
+		bdec = new JButton(".");
+		beq = new JButton("=");
+		bdel = new JButton("Delete");
+		bclr = new JButton("CE");
 		
-		frame.setBounds(0, 0, 600,480);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
-		JMenu CalcMenu = new JMenu("Calculators");
-		menuBar.add(CalcMenu);	
+		t.setBounds(30,40,280,30);
+		b7.setBounds(30,100,50,40);
+		b8.setBounds(100,100,50,40);
+		b9.setBounds(170,100,50,40);
+		bdiv.setBounds(240,100,50,40);
 		
-		JMenuItem PrCalc = new JMenuItem("Programming Calculator");
+		b4.setBounds(30,170,50,40);
+		b5.setBounds(100,170,50,40);
+		b6.setBounds(170,170,50,40);
+		bmul.setBounds(240,170,50,40);
+		
+		b1.setBounds(30,240,50,40);
+		b2.setBounds(100,240,50,40);
+		b3.setBounds(170,240,50,40);
+		bsub.setBounds(240,240,50,40);
+		
+		bdec.setBounds(30,310,50,40);
+		b0.setBounds(100,310,50,40);
+		beq.setBounds(170,310,50,40);
+		badd.setBounds(240,310,50,40);
+		
+		bdel.setBounds(55,380,100,40);
+		bclr.setBounds(175,380,100,40);
+		
+		add(t);
+		add(b7);
+		add(b8);
+		add(b9);
+		add(bdiv);
+		add(b4);
+		add(b5);
+		add(b6);
+		add(bmul);
+		add(b1);
+		add(b2);
+		add(b3);
+		add(bsub);
+		add(bdec);
+		add(b0);
+		add(beq);
+		add(badd);
+		add(bdel);
+		add(bclr);
+		
+		bar = new JMenuBar();
+		setJMenuBar(bar);
+		CalcMenu = new JMenu("Calculators");
+		bar.add(CalcMenu);	
+		
+		PrCalc = new JMenuItem("Programming Calculator");
 		CalcMenu.add(PrCalc);
-		JMenuItem ScCalc = new JMenuItem("Scientific Calculator");
+		ScCalc = new JMenuItem("Scientific Calculator");
 		CalcMenu.add(ScCalc);
-		JMenuItem StCalc = new JMenuItem("Standart Calculator");
+		StCalc = new JMenuItem("Standart Calculator");
 		CalcMenu.add(StCalc);
 		
-		
 		JMenu ChF = new JMenu("Chemistry Formulas");
-		menuBar.add(ChF);	
+		bar.add(ChF);	
 		
 		JMenuItem Cm = new JMenuItem("Cm=n/v [mol/l]n");
 		ChF.add(Cm);
@@ -67,8 +136,10 @@ public class MainMenu
 		ChF.add(nMm);
 		
 		
+		
+		
 		JMenu MaF = new JMenu("Math Formulas");
-		menuBar.add(MaF);
+		bar.add(MaF);
 		
 		
 		JMenuItem fact = new JMenuItem("Factoriel");
@@ -132,7 +203,7 @@ public class MainMenu
 		
 		
 		JMenu PhF = new JMenu("Physics Formulas");
-		menuBar.add(PhF);
+		bar.add(PhF);
 		
 		JMenuItem sVt = new JMenuItem("S=V*t");
 		PhF.add(sVt);
@@ -164,13 +235,10 @@ public class MainMenu
 		JMenuItem vEn = new JMenuItem("v=E/h");
 		PhF.add(vEn);
 		
-		
-		
-		
 		fact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.OneVariableDisplay.factoriel();
 			}
 			});
@@ -178,7 +246,7 @@ public class MainMenu
 		perm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.OneVariableDisplay.permutation();
 			}
 			});
@@ -186,7 +254,7 @@ public class MainMenu
 		comb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.combination();
 			}
 			});
@@ -194,7 +262,7 @@ public class MainMenu
 		proba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.probability();
 			}
 			});
@@ -202,7 +270,7 @@ public class MainMenu
 		sinTh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.sinTheorem();
 			}
 			});
@@ -210,7 +278,7 @@ public class MainMenu
 		trAe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.trArea();
 			}
 			});
@@ -218,7 +286,7 @@ public class MainMenu
 		prlgAe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.prlgArea();
 			}
 			});
@@ -226,7 +294,7 @@ public class MainMenu
 		sumofNEl1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.sumE1();
 			}
 			});
@@ -234,7 +302,7 @@ public class MainMenu
 		sumofNEl2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.sumE2();
 			}
 			});
@@ -242,7 +310,7 @@ public class MainMenu
 		sumofNElGeo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.sumG();
 			}
 			});
@@ -250,7 +318,7 @@ public class MainMenu
 		cosTh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.cosTh();
 			}
 			});
@@ -258,7 +326,7 @@ public class MainMenu
 		med.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.med();
 			}
 			});//sumofNEl1,sumofNEl2,sumofNElGeo,cosTh,med,trAe2,trAe3,trpAe,prlgAe2
@@ -266,7 +334,7 @@ public class MainMenu
 		trAe2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.trAe2();
 			}
 			});
@@ -274,7 +342,7 @@ public class MainMenu
 		trAe3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.trAe3();
 			}
 			});
@@ -282,7 +350,7 @@ public class MainMenu
 		trpAe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.trPAe();
 			}
 			});
@@ -290,7 +358,7 @@ public class MainMenu
 		prlgAe2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.ThreeVariableDisplay.prlgAe2();
 			}
 			}); // Formulas.FourVariableDisplay.trAe4();	
@@ -298,7 +366,7 @@ public class MainMenu
 		trAe4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.FourVariableDisplay.trAe4();
 			}
 			});
@@ -312,7 +380,7 @@ public class MainMenu
 		Cm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.CM();
 			}
 			});
@@ -320,7 +388,7 @@ public class MainMenu
 		nCm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.nCM();
 			}
 			});
@@ -328,7 +396,7 @@ public class MainMenu
 		vCm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.vCM();
 			}
 			});
@@ -336,7 +404,7 @@ public class MainMenu
 		Dns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.DNs();
 			}
 			});
@@ -344,7 +412,7 @@ public class MainMenu
 		mDns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.mDNs();
 			}
 			});
@@ -352,7 +420,7 @@ public class MainMenu
 		vDns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.vDNs();
 			}
 			});
@@ -360,7 +428,7 @@ public class MainMenu
 		Vm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.VM();
 			}
 			});
@@ -368,7 +436,7 @@ public class MainMenu
 		vVm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.vVM();
 			}
 			});
@@ -376,7 +444,7 @@ public class MainMenu
 		nVm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.nVM();
 			}
 			});
@@ -384,7 +452,7 @@ public class MainMenu
 		Mm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.MM();
 			}
 			});
@@ -392,7 +460,7 @@ public class MainMenu
 		mMm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.mMM();
 			}
 			});
@@ -400,7 +468,7 @@ public class MainMenu
 		nMm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.nMM();
 			}
 			});		
@@ -414,7 +482,7 @@ public class MainMenu
 		sVt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.sVT();
 			}
 			});
@@ -422,7 +490,7 @@ public class MainMenu
 		vSt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.vST();
 			}
 			});
@@ -430,7 +498,7 @@ public class MainMenu
 		tSv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.tSV();
 			}
 			});
@@ -438,7 +506,7 @@ public class MainMenu
 		iUr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.iUR();
 			}
 			});
@@ -447,7 +515,7 @@ public class MainMenu
 		uIr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.uIR();
 			}
 			});
@@ -455,7 +523,7 @@ public class MainMenu
 		rUi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.TwoVariableDisplay.rUI();
 			}
 			});
@@ -463,14 +531,14 @@ public class MainMenu
 		ainst.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.OneVariableDisplay.E1();
 			}
 			});
 		kvE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.OneVariableDisplay.E2();
 			}
 			});
@@ -478,7 +546,7 @@ public class MainMenu
 		mEn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.OneVariableDisplay.m();
 			}
 			});
@@ -486,52 +554,167 @@ public class MainMenu
 		vEn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 				FormulasDisplays.OneVariableDisplay.v();
 			}
 			});
 		
 		
 		
-		
-		
-		
-		
 		StCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
-				
-				frame.add(new CalculatorDisplays.StandCalcDisplay());
-				
-				
-				
+				dispose();
+
+				add(new StandCalcDisplay());
 			}
 			});
 		
 		PrCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 
-				frame.add(new CalculatorDisplays.ProgrammingCalcDisplay());
+				add(new ProgrammingCalcDisplay());
 			}
 			});
 		
 		ScCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				frame.dispose();
+				dispose();
 
-				frame.add(new CalculatorDisplays.ScientificCalcDisplay());
+				add(new ScientificCalcDisplay());
 			}
 			});
 		
+		setLayout(null);
+		setVisible(true);
+		setSize(350, 500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		setLocationRelativeTo(null);
+
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		b4.addActionListener(this);
+		b5.addActionListener(this);
+		b6.addActionListener(this);
+		b7.addActionListener(this);
+		b8.addActionListener(this);
+		b9.addActionListener(this);
+		b0.addActionListener(this);
+		badd.addActionListener(this);
+		bdiv.addActionListener(this);
+		bmul.addActionListener(this);
+		bsub.addActionListener(this);
+		bdec.addActionListener(this);
+		beq.addActionListener(this);
+		bdel.addActionListener(this);
+		bclr.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource()==b1)
+			t.setText(t.getText().concat("1"));
 		
+		if(e.getSource()==b2)
+			t.setText(t.getText().concat("2"));
+		
+		if(e.getSource()==b3)
+			t.setText(t.getText().concat("3"));
+		
+		if(e.getSource()==b4)
+			t.setText(t.getText().concat("4"));
+		
+		if(e.getSource()==b5)
+			t.setText(t.getText().concat("5"));
+		
+		if(e.getSource()==b6)
+			t.setText(t.getText().concat("6"));
+		
+		if(e.getSource()==b7)
+			t.setText(t.getText().concat("7"));
+		
+		if(e.getSource()==b8)
+			t.setText(t.getText().concat("8"));
+		
+		if(e.getSource()==b9)
+			t.setText(t.getText().concat("9"));
+		
+		if(e.getSource()==b0)
+			t.setText(t.getText().concat("0"));
+		
+		if(e.getSource()==bdec)
+			t.setText(t.getText().concat("."));
+		
+		if(e.getSource()==badd)
+		{
+			a=Double.parseDouble(t.getText());
+			operator=1;
+			t.setText("");
+		} 
+		
+		if(e.getSource()==bsub)
+		{
+			a=Double.parseDouble(t.getText());
+			operator=2;
+			t.setText("");
+		}
+		
+		if(e.getSource()==bmul)
+		{
+			a=Double.parseDouble(t.getText());
+			operator=3;
+			t.setText("");
+		}
+		
+		if(e.getSource()==bdiv)
+		{
+			a=Double.parseDouble(t.getText());
+			operator=4;
+			t.setText("");
+		}
+		
+		if(e.getSource()==beq)
+		{
+			b=Double.parseDouble(t.getText());
+		
+			switch(operator)
+			{
+				case 1: result = Calculators.StandardCalculator.sum(a,b);
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
+					break;
+		
+				case 2: result = Calculators.StandardCalculator.diff(a,b);
 
-  //  System.out.print(CustomFormulas.TheAnsIsIntWhenTheParametarIs("A=(x-7)*(x-10)*(x-7)*(x-10)-40",7,0.5));
-    }
+					break;
+		
+				case 3: result = Calculators.StandardCalculator.multi(a,b);
+
+					break;
+		
+				case 4: result = Calculators.StandardCalculator.dev(a,b);
+
+					break;
+		
+				default: result=0;
+			}
+
+			t.setText(""+result);
+		}
+		
+		if(e.getSource()==bclr)
+			t.setText("");
+		
+		if(e.getSource()==bdel)
+		{
+			String s=t.getText();
+			t.setText("");
+			for(int i=0;i<s.length()-1;i++)
+			t.setText(t.getText()+s.charAt(i));
+		}
+	}
+	
 }

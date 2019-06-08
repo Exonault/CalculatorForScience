@@ -1,4 +1,4 @@
-package src.Calculators;
+package Calculators;
 
 public class StandardCalculator {
     public static double sum(double a, double b){return a+b;}
