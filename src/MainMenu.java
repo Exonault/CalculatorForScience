@@ -3,11 +3,11 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
-
-import CalculatorDisplays.ProgrammingCalcDisplay;
-import CalculatorDisplays.ScientificCalcDisplay;
-import CalculatorDisplays.StandCalcDisplay;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.event.MenuListener;
 public class MainMenu
 {
     public static void main(String[] args)
@@ -165,6 +165,14 @@ public class MainMenu
 		PhF.add(vEn);
 		
 		
+		
+		
+		JMenu CustF = new JMenu("Custom Formulas");
+		menuBar.add(CustF);
+	
+		JMenuItem CF = new JMenuItem("Custom Formula");
+		
+		CustF.add(CF);
 		
 		
 		fact.addActionListener(new ActionListener() {
@@ -492,18 +500,23 @@ public class MainMenu
 			});
 		
 		
+		CF.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent event) 
+            {
+            	frame.dispose();
+            	FormulasDisplays.CustomFormulaDisplay.idk();
+            }
+        });
 		
 		
-		
-		
-		
+				
 		StCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
 				frame.dispose();
 				
 				frame.add(new CalculatorDisplays.StandCalcDisplay());
-				
 				
 				
 			}
@@ -527,7 +540,7 @@ public class MainMenu
 			}
 			});
 		
-		
+
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);

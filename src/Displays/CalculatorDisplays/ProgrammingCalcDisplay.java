@@ -215,6 +215,15 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		JMenuItem vEn = new JMenuItem("v=E/h");
 		PhF.add(vEn);
 		
+		
+		JMenu CustF = new JMenu("Custom Formulas");
+		bar.add(CustF);
+	
+		JMenuItem CF = new JMenuItem("Custom Formula");
+		
+		CustF.add(CF);
+		
+		
 		fact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
@@ -538,6 +547,16 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 				FormulasDisplays.OneVariableDisplay.v();
 			}
 			});
+		
+		
+		CF.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent event) 
+            {
+            	dispose();
+            	FormulasDisplays.CustomFormulaDisplay.idk();
+            }
+        });
 		
 		
 		StCalc.addActionListener(new ActionListener() {

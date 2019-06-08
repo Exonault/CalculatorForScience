@@ -20,14 +20,15 @@ public class OneVariableDisplay
 	
 	public static JButton equal;
 	
-	
+
+
 	public static JMenuBar bar;
 	
-	public static JMenu CalcMenu,ChF,MaF,PhF; //Menus
+	public static JMenu CalcMenu,ChF,MaF,PhF,CustF; //Menus
 	
 	public static JMenuItem PrCalc,StCalc,ScCalc; //Calculators
 	
-	public static JMenuItem fact,perm,ainst,kvE,mEn,vEn; //Math Formulas
+	public static JMenuItem fact,perm,ainst,kvE,mEn,vEn,CF; //Math Formulas
 	
 	
 	
@@ -179,6 +180,15 @@ public class OneVariableDisplay
 		
 		JMenuItem vEn = new JMenuItem("v=E/h");
 		PhF.add(vEn);
+		
+		
+		JMenu CustF = new JMenu("Custom Formulas");
+		menuBar.add(CustF);
+	
+		JMenuItem CF = new JMenuItem("Custom Formula");
+		
+		CustF.add(CF);
+		
 		
 		fact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
@@ -503,6 +513,17 @@ public class OneVariableDisplay
 				FormulasDisplays.OneVariableDisplay.v();
 			}
 			});
+		
+		
+		
+		CF.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent event) 
+            {
+            	frame.dispose();
+            	FormulasDisplays.CustomFormulaDisplay.idk();
+            }
+        });
 		
 		
 		StCalc.addActionListener(new ActionListener() {

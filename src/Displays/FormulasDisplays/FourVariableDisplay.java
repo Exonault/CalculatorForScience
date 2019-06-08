@@ -179,6 +179,15 @@ public static JFrame frame = new JFrame();
 		JMenuItem vEn = new JMenuItem("v=E/h");
 		PhF.add(vEn);
 		
+		
+		JMenu CustF = new JMenu("Custom Formulas");
+		menuBar.add(CustF);
+	
+		JMenuItem CF = new JMenuItem("Custom Formula");
+		
+		CustF.add(CF);
+		
+		
 		fact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
@@ -502,6 +511,16 @@ public static JFrame frame = new JFrame();
 				FormulasDisplays.OneVariableDisplay.v();
 			}
 			});
+		
+		
+		CF.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent event) 
+            {
+            	frame.dispose();
+            	FormulasDisplays.CustomFormulaDisplay.idk();
+            }
+        });
 		
 		
 		StCalc.addActionListener(new ActionListener() {

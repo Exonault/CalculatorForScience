@@ -91,6 +91,14 @@ public class TwoVariableDisplay
 		ChF.add(nMm);
 		
 		
+		JMenu CustF = new JMenu("Custom Formulas");
+		menuBar.add(CustF);
+	
+		JMenuItem CF = new JMenuItem("Custom Formula");
+		
+		CustF.add(CF);
+		
+		
 		JMenu MaF = new JMenu("Math Formulas");
 		menuBar.add(MaF);
 		
@@ -506,6 +514,17 @@ public class TwoVariableDisplay
 				FormulasDisplays.OneVariableDisplay.v();
 			}
 			});
+		
+		
+		CF.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent event) 
+            {
+            	frame.dispose();
+            	FormulasDisplays.CustomFormulaDisplay.idk();
+            }
+        });
+		
 		
 		
 		StCalc.addActionListener(new ActionListener() {
