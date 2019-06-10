@@ -204,6 +204,14 @@ public static JFrame frame = new JFrame();
 			}
 			});
 		
+		var.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+				FormulasDisplays.TwoVariableDisplay.variable();
+			}
+			});
+		
 		comb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
@@ -589,6 +597,16 @@ public static JFrame frame = new JFrame();
 	public static void trAe4()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		VarD.setText("");
+		result.setText("");
+		VarA.setText("a");
+		VarB.setText("b");		
+		VarC.setText("c");
+		VarD.setText("R");
+		result.setText("S = ((a*b*c) / (4*R))");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");

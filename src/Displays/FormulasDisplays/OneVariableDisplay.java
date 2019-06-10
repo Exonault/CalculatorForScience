@@ -206,6 +206,14 @@ public class OneVariableDisplay
 			}
 			});
 		
+		var.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+				FormulasDisplays.TwoVariableDisplay.variable();
+			}
+			});
+		
 		comb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
@@ -580,12 +588,16 @@ public class OneVariableDisplay
 	public static void factoriel()
 	{
 		run();
+		VarA.setText(" ");
 		VarA.setText("n");
+		result.setText("Factoriel(n)");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
 				int b = Integer.parseInt(VarA.getText());
 				result.setText(""+Formulas.MathFormulas.factoriel(b));
+				
+				
 			}
 			});
 	}
@@ -593,7 +605,9 @@ public class OneVariableDisplay
 	public static void permutation()
 	{
 		run();
+		VarA.setText(" ");
 		VarA.setText("n");
+		result.setText("Permutation(n)");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -606,7 +620,9 @@ public class OneVariableDisplay
 	public static void E1()
 	{
 		run();
-		VarA.setText("n");
+		VarA.setText(" ");
+		VarA.setText("m");
+		result.setText("E = m*c*c");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -619,7 +635,9 @@ public class OneVariableDisplay
 	public static void E2()
 	{
 		run();
-		VarA.setText("n");
+		VarA.setText(" ");
+		VarA.setText("v");
+		result.setText("E = v*h");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -632,7 +650,9 @@ public class OneVariableDisplay
 	public static void m()
 	{
 		run();
-		VarA.setText("n");
+		VarA.setText(" ");
+		VarA.setText("E");
+		result.setText("m = E/(c*c)");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -645,7 +665,9 @@ public class OneVariableDisplay
 	public static void v()
 	{
 		run();
-		VarA.setText("n");
+		VarA.setText(" ");
+		VarA.setText("E");
+		result.setText("v = E/h");		
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");

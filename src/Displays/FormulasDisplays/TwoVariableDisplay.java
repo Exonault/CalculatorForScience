@@ -91,13 +91,6 @@ public class TwoVariableDisplay
 		ChF.add(nMm);
 		
 		
-		JMenu CustF = new JMenu("Custom Formulas");
-		menuBar.add(CustF);
-	
-		JMenuItem CF = new JMenuItem("Custom Formula");
-		
-		CustF.add(CF);
-		
 		
 		JMenu MaF = new JMenu("Math Formulas");
 		menuBar.add(MaF);
@@ -191,6 +184,16 @@ public class TwoVariableDisplay
 		JMenuItem vEn = new JMenuItem("v=E/h");
 		PhF.add(vEn);
 		
+		
+		JMenu CustF = new JMenu("Custom Formulas");
+		menuBar.add(CustF);
+	
+		JMenuItem CF = new JMenuItem("Custom Formula");
+		
+		CustF.add(CF);
+		
+		
+		
 		fact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
@@ -204,6 +207,14 @@ public class TwoVariableDisplay
 			{
 				frame.dispose();
 				FormulasDisplays.OneVariableDisplay.permutation();
+			}
+			});
+		
+		var.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+				FormulasDisplays.TwoVariableDisplay.variable();
 			}
 			});
 		
@@ -585,10 +596,12 @@ public class TwoVariableDisplay
 	public static void variable()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
 		VarA.setText("n");
 		VarB.setText("k");
 		result.setText("n!/(n-k)!");
-
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -602,9 +615,12 @@ public class TwoVariableDisplay
 	public static void combination()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
 		VarA.setText("n");
 		VarB.setText("k");
-		result.setText("n!/(n-k)!*k!");
+		result.setText("n! / (n-k)! * k!");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -618,6 +634,12 @@ public class TwoVariableDisplay
 	public static void probability()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("n");
+		VarB.setText("A");
+		result.setText("P = n/A");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -631,6 +653,12 @@ public class TwoVariableDisplay
 	public static void sinTheorem()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("A");
+		VarB.setText("sinA");
+		result.setText("Result = A/sinA");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -644,6 +672,12 @@ public class TwoVariableDisplay
 	public static void trArea()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("c");
+		VarB.setText("Hc");
+		result.setText("S = c*Hc / 2");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -657,6 +691,12 @@ public class TwoVariableDisplay
 	public static void prlgArea()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("c");
+		VarB.setText("Hc");
+		result.setText("S = c*Hc");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -676,6 +716,12 @@ public class TwoVariableDisplay
 	public static void CM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("n");
+		VarB.setText("v");
+		result.setText("Cm = n/v [mol/l]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -689,6 +735,12 @@ public class TwoVariableDisplay
 	public static void nCM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("Cm");
+		VarB.setText("v");
+		result.setText("n = Cm*v [mol]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -702,6 +754,12 @@ public class TwoVariableDisplay
 	public static void vCM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("n");
+		VarB.setText("Cm");
+		result.setText("V = n*Cm [l]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -715,6 +773,12 @@ public class TwoVariableDisplay
 	public static void DNs()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("m");
+		VarB.setText("v");
+		result.setText("p = m/v [kg/l]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -728,6 +792,12 @@ public class TwoVariableDisplay
 	public static void mDNs()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("p");
+		VarB.setText("v");
+		result.setText("m = p*v [kg]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -741,6 +811,12 @@ public class TwoVariableDisplay
 	public static void vDNs()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("m");
+		VarB.setText("p");
+		result.setText("v = m/p [l]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -754,6 +830,12 @@ public class TwoVariableDisplay
 	public static void VM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("v");
+		VarB.setText("n");
+		result.setText("Vm = v/n [l/mol]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -767,6 +849,12 @@ public class TwoVariableDisplay
 	public static void vVM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("Vm");
+		VarB.setText("n");
+		result.setText("v = Vm*n [l]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -780,6 +868,12 @@ public class TwoVariableDisplay
 	public static void nVM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("v");
+		VarB.setText("Vm");
+		result.setText("n = v/Vm [mol]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -793,6 +887,12 @@ public class TwoVariableDisplay
 	public static void MM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("m");
+		VarB.setText("n");
+		result.setText("M = m/n [kg/mol]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -806,6 +906,12 @@ public class TwoVariableDisplay
 	public static void mMM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("M");
+		VarB.setText("n");
+		result.setText("m = M*n [kg]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -819,6 +925,12 @@ public class TwoVariableDisplay
 	public static void nMM()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("m");
+		VarB.setText("M");
+		result.setText("n = m/M [mol]");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -834,6 +946,12 @@ public class TwoVariableDisplay
 	public static void sVT()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("V");
+		VarB.setText("t");
+		result.setText("S = V*t");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -847,6 +965,12 @@ public class TwoVariableDisplay
 	public static void vST()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("S");
+		VarB.setText("t");
+		result.setText("V = S/t");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -860,6 +984,12 @@ public class TwoVariableDisplay
 	public static void tSV()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("S");
+		VarB.setText("V");
+		result.setText("t = S/V");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -873,6 +1003,12 @@ public class TwoVariableDisplay
 	public static void iUR()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("U");
+		VarB.setText("R");
+		result.setText("I = U/R");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -886,6 +1022,12 @@ public class TwoVariableDisplay
 	public static void uIR()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("I");
+		VarB.setText("R");
+		result.setText("U = I*R");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -899,6 +1041,12 @@ public class TwoVariableDisplay
 	public static void rUI()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		result.setText("");
+		VarA.setText("U");
+		VarB.setText("I");
+		result.setText("R = U/I");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");

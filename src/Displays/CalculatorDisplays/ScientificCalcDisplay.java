@@ -350,6 +350,14 @@ public class ScientificCalcDisplay extends JFrame implements ActionListener
 			}
 			});
 		
+		var.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				dispose();
+				FormulasDisplays.TwoVariableDisplay.variable();
+			}
+			});
+		
 		comb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{

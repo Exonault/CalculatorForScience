@@ -179,6 +179,15 @@ public static JFrame frame = new JFrame();
 		JMenuItem vEn = new JMenuItem("v=E/h");
 		PhF.add(vEn);
 		
+		
+		JMenu CustF = new JMenu("Custom Formulas");
+		menuBar.add(CustF);
+	
+		JMenuItem CF = new JMenuItem("Custom Formula");
+		
+		CustF.add(CF);
+		
+		
 		fact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
@@ -192,6 +201,15 @@ public static JFrame frame = new JFrame();
 			{
 				frame.dispose();
 				FormulasDisplays.OneVariableDisplay.permutation();
+			}
+			});
+		
+		
+		var.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+				FormulasDisplays.TwoVariableDisplay.variable();
 			}
 			});
 		
@@ -564,6 +582,13 @@ public static JFrame frame = new JFrame();
 	public static void idk()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("Ex. A=x*3-1 (Warning: Variables must be named: A, x !!!)");
+		VarB.setText("Starting number of x");
+		VarC.setText("Difference between x's (subtracting)");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");

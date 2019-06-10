@@ -191,6 +191,14 @@ public class MainMenu
 			}
 			});
 		
+		var.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+				FormulasDisplays.TwoVariableDisplay.variable();
+			}
+			});
+		
 		comb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{

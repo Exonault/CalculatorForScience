@@ -204,6 +204,14 @@ public class ThreeVariableDisplay
 			}
 			});
 		
+		var.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event)
+			{
+				frame.dispose();
+				FormulasDisplays.TwoVariableDisplay.variable();
+			}
+			});
+		
 		comb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
@@ -590,6 +598,14 @@ public class ThreeVariableDisplay
 	public static void sumE1()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("a1");
+		VarB.setText("an");		
+		VarC.setText("n");
+		result.setText("Result = ((a1 + an) / 2) * n");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -604,6 +620,14 @@ public class ThreeVariableDisplay
 	public static void sumE2()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("a1");
+		VarB.setText("d");		
+		VarC.setText("n");
+		result.setText("Result = (((2 * a1) + ((n - 1) * d)) / 2) * n");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -618,6 +642,14 @@ public class ThreeVariableDisplay
 	public static void sumG()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("a1");
+		VarB.setText("q");		
+		VarC.setText("n");
+		result.setText("Result = a1 * ((q*(n) - 1) / (q - 1))");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -632,6 +664,14 @@ public class ThreeVariableDisplay
 	public static void cosTh()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("b");
+		VarB.setText("c");		
+		VarC.setText("Alpha");
+		result.setText("a = Math.sqrt(b*b + c*c - (2*b*c*cosAlpha)");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -646,6 +686,14 @@ public class ThreeVariableDisplay
 	public static void med()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("a");
+		VarB.setText("b");		
+		VarC.setText("c");
+		result.setText("Math.sqrt(0.25 * (2 * Math.pow(b, 2) + 2 * Math.pow(c, 2) - Math.pow(a, 2)))");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -660,6 +708,14 @@ public class ThreeVariableDisplay
 	public static void trAe2()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("b");
+		VarB.setText("c");		
+		VarC.setText("Gama");
+		result.setText("S = (b*c*sinA) /2");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -674,6 +730,14 @@ public class ThreeVariableDisplay
 	public static void trAe3()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("a");
+		VarB.setText("b");		
+		VarC.setText("c");
+		result.setText("S = Math.sqrt(p*(p - a)*(p - b)*(p - c))");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -688,6 +752,14 @@ public class ThreeVariableDisplay
 	public static void trPAe()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("a");
+		VarB.setText("b");		
+		VarC.setText("h");
+		result.setText("S = (a+b)*h / 2");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
@@ -702,6 +774,14 @@ public class ThreeVariableDisplay
 	public static void prlgAe2()
 	{
 		run();
+		VarA.setText("");
+		VarB.setText("");
+		VarC.setText("");
+		result.setText("");
+		VarA.setText("a");
+		VarB.setText("b");		
+		VarC.setText("Alpha");
+		result.setText("S = a*b*sinAlpha");
 		equal.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				result.setText("");
