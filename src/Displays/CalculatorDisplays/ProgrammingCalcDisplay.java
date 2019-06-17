@@ -16,16 +16,19 @@ import javax.swing.JTextField;
 
 public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 {
-	//JFrame f;
+	// Predefinirane na text-fielda. bytonite, menu-bara, itemite na menuto, samoto
+	// menu
 	JTextField t;
 	JButton bo,bd,bh,ob,od,oh,db,doo,dh,hb,ho,hd;
 	JMenuBar bar;
 	JMenuItem PrCalc,StCalc,ScCalc;
 	JMenu CalcMenu;
+	
+	// Definirane na promenliva za chislata
 	static int a=0;
 	public ProgrammingCalcDisplay()
 	{
-		//f=new JFrame("Programming Calculator");
+		// Zadavane na imena na bytonite
 		t = new JTextField("");
 		bo = new JButton("Binary to Octal");
 		bd = new JButton("Binary to Decimal");
@@ -40,6 +43,8 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		ho = new JButton("Hexadecimal to Octal");
 		hd = new JButton("Hexadecimal to Decimal");
 		
+		
+		//Zadavane na tehnite pozicii
 		t.setBounds(80,40,490,30);
 		bo.setBounds(40, 100, 180, 40);
 		bd.setBounds(240, 100, 180, 40);
@@ -54,6 +59,8 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		ho.setBounds(240, 310, 180, 40);
 		hd.setBounds(440, 310, 180, 40);
 		
+		
+		//Dobavqna na bytonite kam frame-a
 		add(t);
 		add(bo);
 		add(bd);
@@ -68,11 +75,14 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		add(ho);
 		add(hd);
 		
+		
+		//Zadavane na menu-bar-a
 		bar = new JMenuBar();
 		setJMenuBar(bar);
 		CalcMenu = new JMenu("Calculators");
 		bar.add(CalcMenu);	
 		
+		//Definirane na Menu-itemite
 		PrCalc = new JMenuItem("Programming Calculator");
 		CalcMenu.add(PrCalc);
 		ScCalc = new JMenuItem("Scientific Calculator");
@@ -80,9 +90,22 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		StCalc = new JMenuItem("Standart Calculator");
 		CalcMenu.add(StCalc);
 		
+		//Dobavqne na dopalnitelnite Menu-ta
 		JMenu ChF = new JMenu("Chemistry Formulas");
 		bar.add(ChF);	
 		
+		JMenu MaF = new JMenu("Math Formulas");
+		bar.add(MaF);
+		
+		JMenu PhF = new JMenu("Physics Formulas");
+		bar.add(PhF);
+		
+		JMenu CustF = new JMenu("Custom Formulas");
+		bar.add(CustF);
+		
+		
+		
+		//Zadavane na menu-itemite na Himicheskite formuli i dobavqne kym menuto
 		JMenuItem Cm = new JMenuItem("Cm=n/v [mol/l]n");
 		ChF.add(Cm);
 		JMenuItem nCm = new JMenuItem("n=Cm*v [mol]");
@@ -90,16 +113,12 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		JMenuItem vCm = new JMenuItem("v=n/Cm [l]");
 		ChF.add(vCm);
         
-		
-		
 		JMenuItem Dns = new JMenuItem("p=m/v [kg/l]");
 		ChF.add(Dns);
 		JMenuItem mDns = new JMenuItem("m=p*v [kg]");
 		ChF.add(mDns);
 		JMenuItem vDns = new JMenuItem("v=p [l]");
 		ChF.add(vDns);
-		
-		
 		
 		JMenuItem Vm = new JMenuItem("Vm=v/n [l/mol]");
 		ChF.add(Vm);
@@ -117,11 +136,7 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		
 		
 		
-		
-		JMenu MaF = new JMenu("Math Formulas");
-		bar.add(MaF);
-		
-		
+		//Zadavane na menu-itemite na matematicheskite formuli i dobavqne kym menuto
 		JMenuItem fact = new JMenuItem("Factoriel");
 		MaF.add(fact);
 		
@@ -177,14 +192,8 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		MaF.add(prlgAe2);
 		
 		
-		
-		
-		
-		
-		
-		JMenu PhF = new JMenu("Physics Formulas");
-		bar.add(PhF);
-		
+
+		//Zadavane na menu-itemite na fizichnite formuli i dobavqne kym menuto
 		JMenuItem sVt = new JMenuItem("S=V*t");
 		PhF.add(sVt);
 		
@@ -216,295 +225,291 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		PhF.add(vEn);
 		
 		
-		JMenu CustF = new JMenu("Custom Formulas");
-		bar.add(CustF);
 	
+		//Zadavane na custom-formulata i dobavqne kym menuto
 		JMenuItem CF = new JMenuItem("Custom Formula");
 		
 		CustF.add(CF);
 		
 		
+		
+		
+		//Zadavane na funkcii na menu-itemite pri tqhnoto natiskane
+		
+		//Matematika
 		fact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.OneVariableDisplay.factoriel();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.OneVariableDisplay.factoriel(); //Vikane na saotvetnata funkciq 
 			}
 			});
 		
 		perm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.OneVariableDisplay.permutation();
+				dispose();//Zatvarqna na frame-a
+				FormulasDisplays.OneVariableDisplay.permutation(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		var.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.variable();
+				dispose();//Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.variable(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		comb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.combination();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.combination(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		proba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.probability();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.probability(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		sinTh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.sinTheorem();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.sinTheorem(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		trAe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.trArea();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.trArea(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		prlgAe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.prlgArea();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.prlgArea(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		sumofNEl1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.sumE1();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.sumE1(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		sumofNEl2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.sumE2();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.sumE2(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		sumofNElGeo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.sumG();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.sumG(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		cosTh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.cosTh();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.cosTh(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		med.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.med();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.med(); //Vikane na saotvetnata funkci
 			}
-			});//sumofNEl1,sumofNEl2,sumofNElGeo,cosTh,med,trAe2,trAe3,trpAe,prlgAe2
+			});
 		
 		trAe2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.trAe2();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.trAe2(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		trAe3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.trAe3();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.trAe3(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		trpAe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.trPAe();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.trPAe(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		prlgAe2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.ThreeVariableDisplay.prlgAe2();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.ThreeVariableDisplay.prlgAe2(); //Vikane na saotvetnata funkci
 			}
-			}); // Formulas.FourVariableDisplay.trAe4();	
+			});
 		
 		trAe4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.FourVariableDisplay.trAe4();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.FourVariableDisplay.trAe4(); //Vikane na saotvetnata funkci
 			}
 			});
 		
-		
-		
-		
-		
-		
-		
+
+		//Himiq
 		Cm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.CM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.CM(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		nCm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.nCM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.nCM(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		vCm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.vCM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.vCM(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		Dns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.DNs();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.DNs(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		mDns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.mDNs();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.mDNs(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		vDns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.vDNs();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.vDNs(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		Vm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.VM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.VM(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		vVm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.vVM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.vVM(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		nVm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.nVM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.nVM(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		Mm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.MM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.MM(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		mMm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.mMM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.mMM(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		nMm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.nMM();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.nMM(); //Vikane na saotvetnata funkci
 			}
-			});		
+			});	
 		
 		
-		
-		
-		
-		
-		
+		//Fizika
 		sVt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.sVT();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.sVT(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		vSt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.vST();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.vST(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		tSv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.tSV();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.tSV(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		iUr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.iUR();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.iUR(); //Vikane na saotvetnata funkci
 			}
 			});
 
@@ -512,87 +517,90 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		uIr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.uIR();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.uIR(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		rUi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.TwoVariableDisplay.rUI();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.TwoVariableDisplay.rUI(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		ainst.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.OneVariableDisplay.E1();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.OneVariableDisplay.E1(); //Vikane na saotvetnata funkci
 			}
 			});
 		kvE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.OneVariableDisplay.E2();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.OneVariableDisplay.E2(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		mEn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.OneVariableDisplay.m();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.OneVariableDisplay.m(); //Vikane na saotvetnata funkci
 			}
 			});
 		
 		vEn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				FormulasDisplays.OneVariableDisplay.v();
+				dispose(); //Zatvarqna na frame-a
+				FormulasDisplays.OneVariableDisplay.v(); //Vikane na saotvetnata funkci
 			}
 			});
-		
 		
 		CF.addActionListener(new ActionListener() {
             
             public void actionPerformed(ActionEvent event) 
             {
-            	dispose();
-            	FormulasDisplays.CustomFormulaDisplay.idk();
+            	dispose(); //Zatvarqna na frame-a
+            	FormulasDisplays.CustomFormulaDisplay.idk(); //Vikane na saotvetnata funkci
             }
         });
 		
 		
+		//Kalkulatori
 		StCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
-				add(new StandCalcDisplay());
+				dispose(); //Zatvarqna na frame-a
+
+				add(new StandCalcDisplay()); //Vikane na kalkulatora
 			}
 			});
 		
 		PrCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
+				dispose(); //Zatvarqna na frame-a
 
-				add(new ProgrammingCalcDisplay());
+				add(new ProgrammingCalcDisplay()); //Vikane na kalkulatora
 			}
 			});
 		
 		ScCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event)
 			{
-				dispose();
+				dispose(); //Zatvarqna na frame-a
 
-				add(new ScientificCalcDisplay());
+				add(new ScientificCalcDisplay()); //Vikane na kalkulatora
 			}
 			});
 		
+		
+		//Zadavane funckii na frame-a
 		setLayout(null);
 		setVisible(true);
 		setSize(650, 450);
@@ -601,6 +609,7 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		setLocationRelativeTo(null);
 
 		
+		//Dobavqna na funkcii kam butonite
 		bo.addActionListener(this);
 		bd.addActionListener(this);
 		bh.addActionListener(this);
@@ -621,86 +630,122 @@ public class ProgrammingCalcDisplay extends JFrame implements ActionListener
 		hd.addActionListener(this);
 	}
 	
+	
+	
+	//Pri natiskane na byton:
 	public void actionPerformed(ActionEvent e)
 	{
+		//Pri natiskane B->O
 		if(e.getSource()==bo)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav dvoichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toOctal(a, 2));
 		} 
 		
+		//Pri natiskane B->D
 		if(e.getSource()==bd)
 		{
-			a=Integer.parseInt(t.getText());
+			//Zadavane na stoinost na chisloto a
+			a=Integer.parseInt(t.getText());			
+			//Izvejdane na chilsoto vav desetichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toDecimal(a, 2));
 		} 
 		
+		//Pri natiskane B->H
 		if(e.getSource()==bh)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav shestnadesetichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toHexadecimal(a, 2));
 		} 
 		
 		
 		
-		
+		//Pri natiskane O->B
 		if(e.getSource()==ob)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav dvoichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toBinary(a, 8));
 		} 
 		
+		//Pri natiskane O->D
 		if(e.getSource()==od)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav desetichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toDecimal(a, 8));
 		} 
 		
+		//Pri natiskane O->H
 		if(e.getSource()==oh)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav shestnadesetichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toHexadecimal(a, 8));
 		} 
 		
 		
 		
-		
+		//Pri natiskane D->B
 		if(e.getSource()==db)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav dvoichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toBinary(a, 10));
 		} 
 		
+		//Pri natiskane D->O
 		if(e.getSource()==doo)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav osmichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toOctal(a, 10));
 		} 
 		
+		//Pri natiskane D->H
 		if(e.getSource()==dh)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav shestnadesetichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toHexadecimal(a, 10));
 		} 
 		
 		
 		
-		
+		//Pri natiskane H->B
 		if(e.getSource()==hb)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav dvoichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toBinary(a, 16));
 		} 
 		
+		//Pri natiskane H->O
 		if(e.getSource()==ho)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav osmichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toOctal(a, 16));
 		} 
 		
+		//Pri natiskane H->D
 		if(e.getSource()==hd)
 		{
+			//Zadavane na stoinost na chisloto a
 			a=Integer.parseInt(t.getText());
+			//Izvejdane na chilsoto vav desetichna br. sistsema
 			t.setText(Calculators.ProgrammingCalculator.toDecimal(a, 16));
 		} 
 	}
